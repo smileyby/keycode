@@ -8,12 +8,20 @@
     <title>Document</title>
 </head>
 <body>
-<input type="text" id="test">
+<input type="text" id="usr" />
+<input type="button" onclick="checkusr()" value="验证" />
 </body>
 <script>
-    document.getElementById("test").onkeyup=function(e){
-        var e = e||window.event;
-        alert(e.keyCode);
+    function checkusr()
+    {
+//	var reg=/^([a-zA-Z]|[\u4E00-\u9FA5])([a-zA-Z0-9]|[\u4E00-\u9FA5]|[_]){5,15}$/;
+        //字母数字英文下划线中划线
+        var reg=/^[\u4e00-\u9fa5a-zA-Z0-9]{1,15}$/;
+        var textstr=document.getElementById("usr").value;
+        if(reg.test(textstr))
+            alert("ok");
+        else
+            alert("no");
     }
 </script>
 </html>
